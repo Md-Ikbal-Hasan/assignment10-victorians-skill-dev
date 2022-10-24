@@ -30,8 +30,9 @@ const AuthProvider = ({ children }) => {
 
     // register user with google
     const createUserWithGoogle = () => {
-        return signInWithPopup(auth, googleProvider);
         setLoading(false);
+        return signInWithPopup(auth, googleProvider);
+
     }
 
     // register user with github

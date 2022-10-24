@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 import myLogo from '../../../assets/images/myLogo.png'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
+import { Image } from 'react-bootstrap';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -46,7 +47,11 @@ const Header = () => {
                             <>
                                 <span onClick={handleLogOut} className='btn btn-success btn-sm me-3 logout-btn '>Logout</span>
                                 <NavLink to='/profile'>
-                                    <FaUserAlt />
+                                    {
+                                        user?.photoURL ?
+                                            <Image style={{ height: '30px' }} roundedCircle src={user.photoURL}></Image> :
+                                            <FaUserAlt />
+                                    }
                                 </NavLink>
 
                             </>
