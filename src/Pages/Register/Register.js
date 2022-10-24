@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 const Register = () => {
     const [error, setError] = useState('');
 
-    const { user, createUserWithGoogle, createUser, updateUserProfile, createUserWithGithub } = useContext(AuthContext);
+    const { createUserWithGoogle, createUser, updateUserProfile, createUserWithGithub } = useContext(AuthContext);
 
 
     const handleFormSubmit = (e) => {
