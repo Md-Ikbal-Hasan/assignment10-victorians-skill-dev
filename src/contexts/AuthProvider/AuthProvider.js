@@ -10,7 +10,8 @@ import {
     updateProfile,
     sendEmailVerification,
     signOut,
-    GithubAuthProvider
+    GithubAuthProvider,
+    sendPasswordResetEmail
 
 
 } from 'firebase/auth';
@@ -54,8 +55,17 @@ const AuthProvider = ({ children }) => {
 
     // logout user
     const logOut = () => {
-
         return signOut(auth)
+    }
+
+    // verify email address
+    const verifyEmail = () => {
+        return sendEmailVerification(auth.currentUser);
+    }
+
+    // password reset if forget password
+    const passwordReset = (email) => {
+        return sendPasswordResetEmail(auth, email)
     }
 
 
@@ -78,7 +88,9 @@ const AuthProvider = ({ children }) => {
         signIn,
         updateUserProfile,
         logOut,
-        createUserWithGithub
+        createUserWithGithub,
+        verifyEmail,
+        passwordReset
     }
 
     return (

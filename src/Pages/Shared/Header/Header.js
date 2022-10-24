@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css'
 import { FaUserAlt } from 'react-icons/fa';
 import Container from 'react-bootstrap/Container';
@@ -8,12 +8,21 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { NavLink } from 'react-router-dom';
 
 import myLogo from '../../../assets/images/myLogo.png'
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+    console.log(user);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { toast("Successfully log out") })
+            .catch((error) => toast(error.message))
+    }
+
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
-
-
             <Navbar.Brand className='ms-md-5'>
                 <img
                     alt=""
@@ -32,14 +41,23 @@ const Header = () => {
                     <NavLink to='/courses'>Courses</NavLink>
                     <NavLink to='/blog'>Blog</NavLink>
                     <NavLink to='/faq'>FAQ</NavLink>
-                    <NavLink to='/register'>Register</NavLink>
-                    <NavLink to='/login'>Login</NavLink>
-                    <span className='btn btn-success btn-sm me-3 logout-btn '>Logout</span>
+                    {
+                        user?.uid ?
+                            <>
+                                <span onClick={handleLogOut} className='btn btn-success btn-sm me-3 logout-btn '>Logout</span>
+                                <NavLink to='/profile'>
+                                    <FaUserAlt />
+                                </NavLink>
 
+                            </>
+                            :
+                            <>
+                                <NavLink to='/register'>Register</NavLink>
+                                <NavLink to='/login'>Login</NavLink>
 
-                    <NavLink to='/profile'>
-                        <FaUserAlt />
-                    </NavLink>
+                            </>
+                    }
+
                 </Nav>
             </Navbar.Collapse>
 
