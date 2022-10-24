@@ -1,0 +1,18 @@
+.navbar-logo {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+Nav a {
+    text-decoration: none;
+    margin-right: 12px;
+    color: #ffffff;
+}
+
+.active {
+    color: greenyellow
+}
+
+.logout-btn {
+    width: 80px;
+}

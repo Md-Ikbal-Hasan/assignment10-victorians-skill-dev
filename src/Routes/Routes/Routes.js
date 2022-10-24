@@ -4,6 +4,12 @@ import Home from "../../Pages/Home/Home";
 import ErrorPage from "../../Pages/Others/ErrorPage/ErrorPage";
 import Blog from '../../Pages/Others/Blog/Blog';
 import FAQ from '../../Pages/Others/FAQ/FAQ';
+import Register from '../../Pages/Register/Register';
+import Login from '../../Pages/Login/Login';
+import Profile from '../../Pages/Profile/Profile'
+import Courses from '../../Pages/Courses/Courses'
+
+
 
 
 export const routes = createBrowserRouter([
@@ -21,6 +27,22 @@ export const routes = createBrowserRouter([
                 path: '/home',
                 element: <Home></Home>
             },
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>
+            },
+            {
+                path: '/courses',
+                element: <Courses></Courses>
+            },
 
             {
                 path: '/blog',
@@ -29,7 +51,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/faq',
                 element: <FAQ></FAQ>
-            }
+            },
 
         ]
     }
