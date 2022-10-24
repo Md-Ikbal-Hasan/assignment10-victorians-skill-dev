@@ -23,6 +23,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -30,41 +31,49 @@ const AuthProvider = ({ children }) => {
     // register user with google
     const createUserWithGoogle = () => {
         return signInWithPopup(auth, googleProvider);
+        setLoading(false);
     }
 
     // register user with github
     const createUserWithGithub = () => {
+        setLoading(false);
         return signInWithPopup(auth, githubProvider);
     }
 
 
     // register user with email and password
     const createUser = (email, password) => {
+        setLoading(false);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     // login user with email and password
     const signIn = (email, password) => {
+        setLoading(false);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     // update user name and profile picture
     const updateUserProfile = (profile) => {
+        setLoading(false);
         return updateProfile(auth.currentUser, profile);
     }
 
     // logout user
     const logOut = () => {
+        setLoading(false);
         return signOut(auth)
     }
 
     // verify email address
     const verifyEmail = () => {
+        setLoading(false);
         return sendEmailVerification(auth.currentUser);
     }
 
     // password reset if forget password
     const passwordReset = (email) => {
+        setLoading(false);
         return sendPasswordResetEmail(auth, email)
     }
 
@@ -74,6 +83,8 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
+            setLoading(false);
+
         })
 
         return () => unsubscribe();
@@ -90,7 +101,8 @@ const AuthProvider = ({ children }) => {
         logOut,
         createUserWithGithub,
         verifyEmail,
-        passwordReset
+        passwordReset,
+        loading
     }
 
     return (

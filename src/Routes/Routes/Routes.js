@@ -8,6 +8,7 @@ import Register from '../../Pages/Register/Register';
 import Login from '../../Pages/Login/Login';
 import Profile from '../../Pages/Profile/Profile'
 import Courses from '../../Pages/Courses/Courses'
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 
@@ -37,11 +38,11 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/profile',
-                element: <Profile></Profile>
+                element: <PrivateRoute> <Profile></Profile> </PrivateRoute>
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <PrivateRoute> <Courses></Courses> </PrivateRoute>
             },
 
             {

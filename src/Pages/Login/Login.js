@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { toast } from 'react-toastify';
 
@@ -13,6 +13,12 @@ const Login = () => {
     const [error, setError] = useState('');
     const [userEmail, setUserEmail] = useState();
     const { createUserWithGoogle, createUserWithGithub, signIn, passwordReset } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    console.log("location from login route: ", location.pathname);
+
 
 
     const handleFormSubmit = (e) => {
@@ -29,6 +35,7 @@ const Login = () => {
                 console.log("logged in user: ", user);
                 toast("Successfully Logged In");
                 form.reset();
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message);
