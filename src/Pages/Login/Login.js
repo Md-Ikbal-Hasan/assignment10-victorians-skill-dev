@@ -94,7 +94,7 @@ const Login = () => {
 
 
     return (
-        <div className='container user-input-form ms-auto border p-4 my-5 '>
+        <div className='container w-md-50 w-100 ms-auto border p-4 my-5 '>
             <Form onSubmit={handleFormSubmit} className=''>
                 <h1 className='text-center'>Login</h1>
 
@@ -115,6 +115,8 @@ const Login = () => {
                 <Form.Text className="text-danger">
                     {error}
                 </Form.Text>
+                <br />
+
                 <small> <Button onClick={handleForgotPassword} variant="link"> Forget Password? Reset Password</Button>  </small>
 
             </Form>
@@ -122,8 +124,8 @@ const Login = () => {
             <div className='text-center'>
                 <hr />
                 <p> <small>Sign in with Social Media</small> </p>
-                <button onClick={handleGoogleSingIn} className='btn btn-success me-5'>Google</button>
-                <button onClick={handleGithubSignIn} className='btn btn-success'>GitHub</button>
+                <button onClick={handleGoogleSingIn} className='btn btn-outline-success mb-2 d-block w-100'>Google</button>
+                <button onClick={handleGithubSignIn} className='btn btn-outline-success d-block w-100'>GitHub</button>
             </div>
             <p className='text-center'> <small>Are you new to this site? <Link to='/register'>Registrater Now</Link></small> </p>
 

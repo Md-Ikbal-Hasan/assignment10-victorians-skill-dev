@@ -86,7 +86,7 @@ const Register = () => {
     }
 
     return (
-        <div className='container user-input-form ms-auto border p-4 my-5 '>
+        <div className='container w-md-50 w-100 ms-auto border p-4 my-5 '>
             <Form onSubmit={handleFormSubmit} className=''>
                 <h1 className='text-center'>Register</h1>
 
@@ -123,8 +123,8 @@ const Register = () => {
             <div className='text-center'>
                 <hr />
                 <p> <small>Sign Up with Social Media</small> </p>
-                <button onClick={handleGoogleSingIn} className='btn btn-success me-5'>Google</button>
-                <button onClick={handleGithubSignIn} className='btn btn-success'>GitHub</button>
+                <button onClick={handleGoogleSingIn} className='btn btn-outline-success mb-2 d-block w-100'>Google</button>
+                <button onClick={handleGithubSignIn} className='btn btn-outline-success d-block w-100'>GitHub</button>
             </div>
             <p className='text-center'> <small>Already have an account? <Link to='/login'>Login</Link></small> </p>
 

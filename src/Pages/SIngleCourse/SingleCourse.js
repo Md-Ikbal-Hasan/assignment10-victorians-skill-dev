@@ -1,16 +1,15 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
+
 const SingleCourse = ({ course }) => {
     const { title, image, description } = course;
-    console.log("single course:", course)
     return (
-        <div class="col">
-            <div class="card">
-                <img src={image} class="card-img-top" alt="..." style={{ height: "200px" }} />
-                <div class="card-body">
-                    <h5 class="card-title">{title}</h5>
-                    <p class="card-text">
+        <div className="col">
+            <div className="card">
+                <img src={image} className="card-img-top" alt="..." style={{ height: "200px" }} />
+                <div className="card-body">
+                    <h5 className="card-title">{title}</h5>
+                    <p className="card-text">
                         {
                             description.length > 200 ?
                                 <>
@@ -25,9 +24,12 @@ const SingleCourse = ({ course }) => {
                     </p>
                 </div>
 
-                <div class="card-footer">
-                    <button className='btn btn-success'>Details</button>
+                <div className="card-footer">
+                    <Link to={`/courses/${course.id}`} className='text-decoration-none' >
+                        <button className='btn btn-success d-block w-100'>Details</button>
+                    </Link>
                 </div>
+
             </div>
         </div>
     );

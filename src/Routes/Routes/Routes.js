@@ -9,6 +9,8 @@ import Login from '../../Pages/Login/Login';
 import Profile from '../../Pages/Profile/Profile'
 import Courses from '../../Pages/Courses/Courses'
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
+import Checkout from "../../Pages/Checkout/Checkout";
 
 
 export const routes = createBrowserRouter([
@@ -40,8 +42,19 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <PrivateRoute> <Courses></Courses> </PrivateRoute>,
+                element: <Courses></Courses>,
                 loader: () => fetch(`https://victorians-skill-dev-server.vercel.app/course`)
+            },
+            {
+                path: '/courses/:id',
+                element: <PrivateRoute> <CourseDetails></CourseDetails> </PrivateRoute>,
+                loader: ({ params }) => fetch(`https://victorians-skill-dev-server.vercel.app/course/${params.id}`)
+            },
+
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute> <Checkout></Checkout> </PrivateRoute>,
+                loader: ({ params }) => fetch(`https://victorians-skill-dev-server.vercel.app/course/${params.id}`)
             },
 
             {

@@ -14,7 +14,6 @@ import { Image } from 'react-bootstrap';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
 
     const handleLogOut = () => {
         logOut()
