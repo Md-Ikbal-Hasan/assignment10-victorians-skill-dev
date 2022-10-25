@@ -47,7 +47,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <PrivateRoute> <CourseDetails></CourseDetails> </PrivateRoute>,
+                element: <CourseDetails></CourseDetails>,
                 loader: ({ params }) => fetch(`https://victorians-skill-dev-server.vercel.app/course/${params.id}`)
             },
 

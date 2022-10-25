@@ -13,7 +13,7 @@ function App() {
         autoClose={3000}
       />
 
-      <ToastContainer />
+
 
 
     </div>
