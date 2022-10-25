@@ -14,6 +14,7 @@ import { Image } from 'react-bootstrap';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    console.log(user)
 
     const handleLogOut = () => {
         logOut()
@@ -48,7 +49,7 @@ const Header = () => {
                                 <NavLink to='/profile'>
                                     {
                                         user?.photoURL ?
-                                            <Image style={{ height: '30px' }} roundedCircle src={user.photoURL}></Image> :
+                                            <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> :
                                             <FaUserAlt />
                                     }
                                 </NavLink>
