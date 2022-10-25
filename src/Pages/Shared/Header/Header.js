@@ -35,8 +35,8 @@ const Header = () => {
             </Navbar.Brand>
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav" className='me-5'>
-                <Nav className="ms-auto">
+            <Navbar.Collapse id="basic-navbar-nav " className='me-5'>
+                <Nav className="ms-auto mynav-item">
                     <NavLink to='/'>Home</NavLink>
                     <NavLink to='/courses'>Courses</NavLink>
                     <NavLink to='/blog'>Blog</NavLink>
@@ -44,7 +44,7 @@ const Header = () => {
                     {
                         user?.uid ?
                             <>
-                                <span onClick={handleLogOut} className='btn btn-success btn-sm me-3 logout-btn '>Logout</span>
+                                <span onClick={handleLogOut} className='btn btn-success btn-sm me-3 logout-btn'>Logout</span>
                                 <NavLink to='/profile'>
                                     {
                                         user?.photoURL ?

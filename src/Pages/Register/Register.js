@@ -35,6 +35,7 @@ const Register = () => {
                 toast('Registration Successfull with Email and Password');
                 setError('');
                 setLoading(false);
+                navigate(from, { replace: true })
 
                 form.reset();
             })
