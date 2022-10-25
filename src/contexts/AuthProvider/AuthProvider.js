@@ -30,51 +30,51 @@ const AuthProvider = ({ children }) => {
 
     // register user with google
     const createUserWithGoogle = () => {
-        setLoading(false);
+        setLoading(true);
         return signInWithPopup(auth, googleProvider);
 
     }
 
     // register user with github
     const createUserWithGithub = () => {
-        setLoading(false);
+        setLoading(true);
         return signInWithPopup(auth, githubProvider);
     }
 
 
     // register user with email and password
     const createUser = (email, password) => {
-        setLoading(false);
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     // login user with email and password
     const signIn = (email, password) => {
-        setLoading(false);
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     // update user name and profile picture
     const updateUserProfile = (profile) => {
-        setLoading(false);
+        setLoading(true);
         return updateProfile(auth.currentUser, profile);
     }
 
     // logout user
     const logOut = () => {
-        setLoading(false);
+        setLoading(true);
         return signOut(auth)
     }
 
     // verify email address
     const verifyEmail = () => {
-        setLoading(false);
+        setLoading(true);
         return sendEmailVerification(auth.currentUser);
     }
 
     // password reset if forget password
     const passwordReset = (email) => {
-        setLoading(false);
+        setLoading(true);
         return sendPasswordResetEmail(auth, email)
     }
 

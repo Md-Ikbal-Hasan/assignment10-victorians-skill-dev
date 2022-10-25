@@ -14,10 +14,10 @@ const Login = () => {
     const [userEmail, setUserEmail] = useState();
     const { createUserWithGoogle, createUserWithGithub, signIn, passwordReset } = useContext(AuthContext);
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    console.log("location from login route: ", location.pathname);
+    // console.log("location from login route: ", location.pathname);
 
 
 
@@ -32,7 +32,6 @@ const Login = () => {
         signIn(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log("logged in user: ", user);
                 toast("Successfully Logged In");
                 form.reset();
                 navigate(from, { replace: true })
