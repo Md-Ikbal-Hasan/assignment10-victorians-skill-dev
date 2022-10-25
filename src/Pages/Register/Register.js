@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Register.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 
@@ -11,6 +11,10 @@ const Register = () => {
     const [error, setError] = useState('');
 
     const { createUserWithGoogle, createUser, updateUserProfile, createUserWithGithub, setLoading } = useContext(AuthContext);
+
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleFormSubmit = (e) => {
@@ -60,6 +64,7 @@ const Register = () => {
                 const user = result.user;
                 console.log("google user: ", user);
                 toast('Registration Successfull !');
+                navigate(from, { replace: true })
                 setError('');
             })
             .catch((error) => {
@@ -78,6 +83,7 @@ const Register = () => {
                 const user = result.user;
                 console.log("github user: ", user);
                 toast('Registration Successfull !');
+                navigate(from, { replace: true })
                 setError('');
             })
             .catch((error) => {
