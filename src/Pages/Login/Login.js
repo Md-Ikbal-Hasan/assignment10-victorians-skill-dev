@@ -48,6 +48,7 @@ const Login = () => {
                 const user = result.user;
                 console.log("google user: ", user);
                 toast('Registration Successfull !');
+                navigate(from, { replace: true })
                 setError('');
             })
             .catch((error) => {
@@ -65,6 +66,7 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log("github user: ", user);
+                navigate(from, { replace: true })
                 toast('Registration Successfull !');
                 setError('');
             })

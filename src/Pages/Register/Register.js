@@ -10,7 +10,7 @@ import { toast } from 'react-toastify';
 const Register = () => {
     const [error, setError] = useState('');
 
-    const { createUserWithGoogle, createUser, updateUserProfile, createUserWithGithub } = useContext(AuthContext);
+    const { createUserWithGoogle, createUser, updateUserProfile, createUserWithGithub, setLoading } = useContext(AuthContext);
 
 
     const handleFormSubmit = (e) => {
@@ -30,6 +30,8 @@ const Register = () => {
                 handleUpdateUserProfile(name, photoURL);
                 toast('Registration Successfull with Email and Password');
                 setError('');
+                setLoading(false);
+
                 form.reset();
             })
             .catch((error) => {
