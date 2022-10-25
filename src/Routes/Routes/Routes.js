@@ -11,8 +11,6 @@ import Courses from '../../Pages/Courses/Courses'
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
-
-
 export const routes = createBrowserRouter([
     {
         path: '/',
@@ -42,7 +40,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <PrivateRoute> <Courses></Courses> </PrivateRoute>
+                element: <PrivateRoute> <Courses></Courses> </PrivateRoute>,
+                loader: () => fetch(`https://victorians-skill-dev-server.vercel.app/course`)
             },
 
             {
