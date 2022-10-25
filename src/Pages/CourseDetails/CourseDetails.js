@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import { useReactToPrint } from 'react-to-print';
+import { toast } from 'react-toastify';
+
+
+
 const CourseDetails = () => {
     const course = useLoaderData();
     const { id, title, image, description, rating, enrolled, price } = course;
+
+    const componentRef = useRef();
+
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: 'enrolled-course',
+        onAfterPrint: () => toast("pdf download successfully")
+    })
+
+
     return (
         <div className='container'>
-            <h2 className='text-center mb-2'>Course Details</h2>
 
-            <div className='text-center mb-2'>
-                <button className='btn btn-success fw-bold  '>Download Course Details</button>
+
+            <div className='text-center my-2'>
+                <button onClick={handlePrint} className='btn btn-success fw-bold  '>Download Course Details</button>
             </div>
 
-            <div className="card w-75 mx-auto my-3 " >
+
+
+
+
+            <h2 className='text-center mb-2'>Course Details</h2>
+            <div className="card w-75 mx-auto my-3 " ref={componentRef}  >
                 <img src={image} className="card-img-top img-fluid w-100" alt="..." style={{ height: '500px' }} />
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>

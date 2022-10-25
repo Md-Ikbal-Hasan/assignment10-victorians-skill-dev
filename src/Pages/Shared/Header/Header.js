@@ -31,7 +31,7 @@ const Header = () => {
                     height="30"
                     className="d-inline-block align-top navbar-logo"
                 />{' '}
-                <span className='fw-bold'>Victoriasn-Skill-Dev</span>
+                <span className='fw-bold'>Victorians-Skill-Dev</span>
             </Navbar.Brand>
 
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -48,7 +48,7 @@ const Header = () => {
                                 <NavLink to='/profile'>
                                     {
                                         user?.photoURL ?
-                                            <Image style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> :
+                                            <Image title={user.displayName} style={{ height: '30px' }} roundedCircle src={user?.photoURL}></Image> :
                                             <FaUserAlt />
                                     }
                                 </NavLink>

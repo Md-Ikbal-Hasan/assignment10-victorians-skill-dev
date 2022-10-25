@@ -66,6 +66,7 @@ export const routes = createBrowserRouter([
                 element: <FAQ></FAQ>
             },
 
+
         ]
     }
 ])
