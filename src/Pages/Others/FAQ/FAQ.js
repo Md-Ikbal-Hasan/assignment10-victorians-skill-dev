@@ -6,6 +6,13 @@ import Form from 'react-bootstrap/Form';
 const FAQ = () => {
     return (
         <div className='container'>
+
+
+
+
+
+
+
             <div className="row  my-5 g-0">
                 <div className="col-md-6">
                     <img className='img-fluid' src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="" />

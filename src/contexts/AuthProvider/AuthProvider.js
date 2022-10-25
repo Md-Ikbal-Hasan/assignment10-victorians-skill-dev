@@ -103,7 +103,8 @@ const AuthProvider = ({ children }) => {
         createUserWithGithub,
         verifyEmail,
         passwordReset,
-        loading
+        loading,
+        setLoading
     }
 
     return (
