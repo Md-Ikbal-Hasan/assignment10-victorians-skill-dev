@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaBeer } from 'react-icons/fa';
 const Footer = () => {
     return (
         <div className='bg-dark text-white sticky p-3 mb-0'>
