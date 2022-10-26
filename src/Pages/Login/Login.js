@@ -95,7 +95,7 @@ const Login = () => {
 
 
     return (
-        <div className='container w-md-50 w-100 ms-auto border p-4 my-5 '>
+        <div className='container myForm  ms-auto border p-4 my-5 '>
             <Form onSubmit={handleFormSubmit} className=''>
                 <h1 className='text-center'>Login</h1>
 
@@ -109,7 +109,7 @@ const Login = () => {
                     <Form.Control name='password' type="password" placeholder="Password" required />
                 </Form.Group>
 
-                <Button variant="primary" type="submit">
+                <Button variant="success" type="submit">
                     Login
                 </Button>
 

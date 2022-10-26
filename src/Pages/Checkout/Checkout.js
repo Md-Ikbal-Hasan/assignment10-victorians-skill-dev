@@ -7,8 +7,8 @@ const Checkout = () => {
     const course = useLoaderData();
     const { user } = useContext(AuthContext);
     return (
-        <div className='container my-5 border p-5 '>
-            <h3>Checkout</h3>
+        <div className='container myForm my-3 border p-5 '>
+            <h3 className='mb-5'>Checkout</h3>
 
             <div className="mb-3">
                 <label className="form-label">Student Name</label>

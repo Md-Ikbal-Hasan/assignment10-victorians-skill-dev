@@ -23,6 +23,12 @@ Nav a {
 
 }
 
+.myForm {
+    width: 50%;
+}
+
+
+
 
 @media only screen and (max-width: 768px) {
     .mynav-item a {
@@ -32,6 +38,10 @@ Nav a {
 
     .logout-btn {
         margin-left: 20px;
+    }
+
+    .myForm {
+        width: 100%;
     }
 
 
