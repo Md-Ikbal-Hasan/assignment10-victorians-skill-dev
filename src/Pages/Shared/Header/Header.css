@@ -18,14 +18,21 @@ Nav a {
     margin-bottom: 10px;
 }
 
+.toggle-btn {
+    width: 20px;
+
+}
+
 
 @media only screen and (max-width: 768px) {
     .mynav-item a {
         margin-bottom: 15px;
-        margin-left: 20px;
+        margin-left: 30px;
     }
 
     .logout-btn {
         margin-left: 20px;
     }
+
+
 }

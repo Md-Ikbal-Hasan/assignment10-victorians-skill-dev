@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './Header.css'
 import { FaUserAlt } from 'react-icons/fa';
 import Container from 'react-bootstrap/Container';
@@ -12,13 +12,21 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 import { Image } from 'react-bootstrap';
 
+import { Switch } from 'antd';
+
 const Header = () => {
+    const [toggle, setToggle] = useState(false);
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
         logOut()
             .then(() => { toast("Successfully log out") })
             .catch((error) => toast(error.message))
+    }
+
+    const toggler = () => {
+        toggle ? setToggle(false) : setToggle(true)
+        console.log(toggle);
     }
 
     return (
@@ -61,7 +69,7 @@ const Header = () => {
 
                             </>
                     }
-
+                    <Switch className='toggle-btn' onClick={toggler} />
 
 
                 </Nav>
