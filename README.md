@@ -27,3 +27,6 @@
 
 ## live site link
 https://victorians-skill-dev.web.app/
+
+## server side link
+https://github.com/Md-Ikbal-Hasan/assignment10-victorians-skill-dev-server
